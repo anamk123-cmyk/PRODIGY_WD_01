@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Radiant Skin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: linear-gradient(to right, #fff0f5, #ffe4e1);
+      color: #2e2e2e;
+    }
+
+    /* Fixed Navigation Menu */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #efb8c8;
+      padding: 15px 30px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      z-index: 1000;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    nav.scrolled {
+      background-color: #8c4966; /* Darker on scroll */
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #2e2e2e;
+      font-weight: bold;
+      margin-right: 20px;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #fff;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    nav li {
+      margin-right: 30px;
+    }
+
+    header {
+      margin-top: 80px;
+      background: url('https://source.unsplash.com/1600x500/?skincare,beauty') no-repeat center center/cover;
+      height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      position: relative;
+    }
+
+    .hero-content {
+      background: rgba(0,0,0,0.5);
+      padding: 30px 50px;
+      border-radius: 15px;
+    }
+
+    .hero-content h1 {
+      font-size: 3rem;
+      margin-bottom: 15px;
+    }
+
+    .hero-content p {
+      font-size: 1.25rem;
+      margin-bottom: 20px;
+    }
+
+    .hero-btn {
+      display: inline-block;
+      background: #8c4966;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .hero-btn:hover {
+      background: #5c2e46;
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 2.5rem;
+      color: #8c4966;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 20px;
+    }
+
+    .card-content h3 {
+      color: #8c4966;
+      margin-bottom: 10px;
+    }
+
+    .about {
+      text-align: center;
+      line-height: 1.8;
+      font-size: 1.15rem;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    form {
+      max-width: 600px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input, textarea {
+      padding: 14px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      background: #fffaf9;
+    }
+
+    button {
+      padding: 14px;
+      background: #efb8c8;
+      color: #2e2e2e;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: bold;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    button:hover {
+      background: #8c4966;
+      color: white;
+    }
+
+    footer {
+      background: #2e2e2e;
+      color: #fff;
+      text-align: center;
+      padding: 25px 10px;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+
+      .hero-content p {
+        font-size: 1rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      nav li {
+        margin-bottom: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Menu -->
+  <nav id="navbar">
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero" id="home">
+    <div class="hero-content">
+      <h1>🌸 Radiant Skin</h1>
+      <p>Your journey to glowing, healthy skin starts here. Discover the best in skincare.</p>
+      <a href="#products" class="hero-btn">Explore Our Products</a>
+    </div>
+  </header>
+
+  <!-- Skincare Products Section -->
+  <section id="products">
+    <h2 class="section-title">🌿 Our Skincare Range</h2>
+    <div class="container">
+      <div class="card">
+        <img src="m.jpg" alt="Hydrating Moisturizer">
+        <div class="card-content">
+          <h3>Hydrating Moisturizer</h3>
+          <p>A lightweight moisturizer that locks in hydration for all-day soft, smooth skin.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="v.jpg" alt="Vitamin C Serum">
+        <div class="card-content">
+          <h3>Vitamin C Serum</h3>
+          <p>Brighten and even your skin tone with this potent, antioxidant-rich serum.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="d.jpg" alt="Detox Face Mask">
+        <div class="card-content">
+          <h3>Detox Face Mask</h3>
+          <p>A deep-cleansing face mask that removes impurities and leaves skin feeling fresh.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="s.jpg" alt="Exfoliating Scrub">
+        <div class="card-content">
+          <h3>Exfoliating Scrub</h3>
+          <p>Gently exfoliate to reveal smooth, glowing skin while promoting healthy cell turnover.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="t.jpg" alt="Balancing Toner">
+        <div class="card-content">
+          <h3>Balancing Toner</h3>
+          <p>Rebalance and tone your skin with this gentle, alcohol-free toner.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="sun.jpg" alt="Broad Spectrum Sunscreen">
+        <div class="card-content">
+          <h3>Broad Spectrum Sunscreen</h3>
+          <p>Protect your skin from harmful UV rays with this SPF 50 sunscreen.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2 class="section-title">💆‍♀️ About Us</h2>
+    <p class="about">
+      At Radiant Skin, we believe that healthy skin is the foundation of beauty. Our products are carefully crafted with natural ingredients to nourish, protect, and enhance your skin. Whether you're looking to hydrate, exfoliate, or protect, we've got you covered. Embrace your natural glow with our curated skincare range.
+    </p>  
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2 class="section-title">📞 Contact Us</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea rows="4" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Radiant Skin | Follow us on Instagram, Facebook & Twitter
+  </footer>
+
+  <!-- JavaScript to Handle Scroll Effect -->
+  <script>
+    window.onscroll = function() {
+      var navbar = document.getElementById("navbar");
+      if (window.scrollY > 50) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
+    };
+  </script>
+</body>
+</html>
